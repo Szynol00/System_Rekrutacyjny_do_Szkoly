@@ -5,6 +5,14 @@
 
     <div class="container custom-container">
         <div class="row">
+            <form action="{{ route('admin.recruitment.refresh') }}" method="POST"
+                class="d-flex justify-content-center align-items-center">
+                @csrf
+                <button type="submit" class="btn btn-primary custom-btn">
+                    <i class="bi bi-arrow-clockwise"></i> Odśwież rekrutację
+                </button>
+            </form>
+
             <div class="col-md-12">
                 <h1>Lista aplikacji</h1>
 

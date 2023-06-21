@@ -10,6 +10,7 @@ use App\Http\Controllers\AdminProfileController;
 use App\Http\Controllers\AdminApplicationController;
 use App\Http\Controllers\ApplicationController;
 use App\Http\Controllers\UserProfileController;
+use App\Events\RecruitmentFinished;
 
 
 /*
@@ -53,6 +54,7 @@ Route::group(['middleware' => 'admin'], function () {
         return view('admin.admin-dashboard');
     })->name('admin.dashboard');
 
+    // Routing dla tabeli users
     Route::get('/admin/users', [UserController::class, 'index'])->name('admin.users.index');
     Route::get('/admin/users/{id}', [UserController::class, 'show'])->name('admin.users.show');
     Route::get('/admin/users/create', [UserController::class, 'create'])->name('admin.users.create');
@@ -70,6 +72,14 @@ Route::group(['middleware' => 'admin'], function () {
     Route::get('/admin/profiles/{id}/edit', [AdminProfileController::class, 'edit'])->name('admin.profiles.edit');
     Route::put('/admin/profiles/{id}', [AdminProfileController::class, 'update'])->name('admin.profiles.update');
     Route::delete('/admin/profiles/{id}', [AdminProfileController::class, 'destroy'])->name('admin.profiles.destroy');
+
+    Route::post('/admin/recruitment/refresh', function () {
+        // Wywołanie eventu RecruitmentFinished
+        event(new RecruitmentFinished());
+
+        // Przekierowanie na odpowiednią stronę lub wykonanie innych działań
+        return redirect()->back()->with('success', 'Rekrutacja została odświeżona.');
+    })->name('admin.recruitment.refresh');
 
     // Routing dla tabeli applications
     Route::get('/admin/applications', [AdminApplicationController::class, 'index'])->name('admin.applications.index');
