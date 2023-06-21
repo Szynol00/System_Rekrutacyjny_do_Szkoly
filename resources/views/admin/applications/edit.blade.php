@@ -14,7 +14,7 @@
 
                     <div class="form-group mt-2">
                         <label for="submitted_at">Data złożenia:</label>
-                        <input type="text" class="form-control" id="submitted_at" name="submitted_at"
+                        <input type="datetime-local" class="form-control" id="submitted_at" name="submitted_at"
                             value="{{ $application->submitted_at }}">
                     </div>
 

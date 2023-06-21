@@ -45,13 +45,13 @@
 
                             <div class="form-group">
                                 <label for="start_date">Początek</label>
-                                <input type="text" class="form-control" id="start_date" name="start_date"
+                                <input type="datetime-local" class="form-control" id="start_date" name="start_date"
                                     value="{{ $profile->start_date }}">
                             </div>
 
                             <div class="form-group">
                                 <label for="end_date">Koniec</label>
-                                <input type="text" class="form-control" id="end_date" name="end_date"
+                                <input type="datetime-local" class="form-control" id="end_date" name="end_date"
                                     value="{{ $profile->end_date }}">
                             </div>
 
@@ -71,7 +71,15 @@
                                         class="btn btn-secondary mt-3 mb-3">Anuluj</a>
                                 </div>
                             </form>
-
+                            @if ($errors->any())
+                                <div class="alert alert-danger">
+                                    <ul>
+                                        @foreach ($errors->all() as $error)
+                                            <li>{{ $error }}</li>
+                                        @endforeach
+                                    </ul>
+                                </div>
+                            @endif
                     </div>
                 </div>
             </div>

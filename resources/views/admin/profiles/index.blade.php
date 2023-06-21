@@ -5,13 +5,13 @@
 
     <div class="container custom-container">
         <div class="row">
-            <div class="col-md-12">
+            {{-- <div class="col-md-12">
                 <div class="text-right mb-3">
                     <a href="{{ route('admin.profiles.create') }}" class="btn btn-primary custom-btn">
                         <i class="bi bi-plus-circle-dotted"></i> Dodaj nowy profil
                     </a>
                 </div>
-            </div>
+            </div> --}}
             @foreach ($profiles as $profile)
                 <div class="col-md-4">
                     <div class="card mb-4">
@@ -37,7 +37,7 @@
                                     class="btn btn-primary custom-btn">Szczegóły</a>
                                 <a href="{{ route('admin.profiles.edit', $profile->id) }}"
                                     class="btn btn-primary">Edytuj</a>
-                                <a href="{{ route('admin.profiles.destroy', $profile->id) }}"
+                                {{-- <a href="{{ route('admin.profiles.destroy', $profile->id) }}"
                                     class="btn btn-danger rounded-right"
                                     onclick="event.preventDefault();
             if (confirm('Czy na pewno chcesz usunąć ten profil?')) {
@@ -50,7 +50,7 @@
                                     style="display: none;">
                                     @csrf
                                     @method('DELETE')
-                                </form>
+                                </form> --}}
                             </div>
                         </div>
 
