@@ -1,0 +1,74 @@
+body {
+    background-color: #fff;
+    font-family: 'Raleway', sans-serif;
+}
+
+.wrapper {
+    margin-left: 4%;
+    /* background-color: white; */
+}
+
+.custom-navbar.navbar-dark {
+    background-color: #30344c !important;
+    font-size: 120%;
+}
+
+#navbar-logo {
+    /* margin-left: 4%;
+    margin-right: 4%; */
+    color: #fff;
+    font-weight: bold;
+}
+
+
+.navbar-brand {
+    font-style: italic;
+}
+
+.carousel-caption {
+    background-color: rgba(0, 0, 0, 0.5);
+    padding: 20px;
+    margin: auto;
+    border: 2px solid transparent;
+    box-shadow: 0 0 0 2px rgba(0, 0, 0, 0.5);
+    bottom: auto;
+    top: 60%;
+}
+
+.nav-link {
+    color: #fff !important;
+}
+
+.navbar-nav .nav-item {
+    margin-right: 25px;
+    margin-top: 2%;
+}
+
+.custom-jumbotron {
+    margin-top: 3%;
+    margin-left: 1%;
+    margin-bottom: 6%;
+    /* text-align: center; */
+    background-color: #fff;
+    font-size: 120%;
+}
+
+.custom-footer {
+    background-color: #30344c !important;
+    padding: 9px;
+}
+
+.custom-container {
+    margin-top: 6%;
+    margin-bottom: 4%;
+}
+
+.topHeader {
+    background-color: #3b405e !important;
+    color: #fff;
+}
+
+.custom-btn {
+    background-color: #3b405e !important;
+    border-color: #3b405e !important;
+}
