@@ -8,7 +8,7 @@
             <h5 class="card-title">Edytuj użytkownika</h5>
         </div>
         <div class="card-body">
-            <form action="{{ route('admin.users.update', $user->id) }}" method="POST">
+            <form action="{{ route('admin.users.update', $user->id) }}" method="POST" enctype="multipart/form-data">
                 @csrf
                 @method('PUT')
 
@@ -18,7 +18,19 @@
                             <label for="photo" class="form-label">Zdjęcie:</label><br />
                             <img
                                 src="{{ $user->photo ? asset('storage/' . $user->photo) : asset('img/anonim.jpg') }}" />
+                            <input type="file" class="form-control" id="photo" name="photo">
+                            <p class="text-primary">Maksymalny rozmiar zdjęcia to 400KB.</p>
                         </div>
+                        @if ($errors->any())
+                            <div class="alert alert-danger">
+                                <ul>
+                                    @foreach ($errors->all() as $error)
+                                        <li>{{ $error }}</li>
+                                    @endforeach
+                                </ul>
+                            </div>
+                        @endif
+
                     </div>
                     <div class="col-md-8">
                         <div class="mb-3">

@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\User;
 use App\Models\Candidate;
+use Illuminate\Support\Facades\Validator;
 
 class UserController extends Controller
 {
@@ -62,10 +63,28 @@ class UserController extends Controller
         $user = User::findOrFail($id);
         $candidate = $user->candidate;
 
+        $validator = Validator::make($request->all(), [
+            'first_name' => 'required|string|max:255',
+            'last_name' => 'required|string|max:255',
+            'email' => 'required|string|email|max:255',
+            'photo' => 'nullable|image|mimes:png,jpg,jpeg|max:400', // 400 KB
+            'math_score' => 'required|numeric|min:0|max:100',
+            'polish_score' => 'required|numeric|min:0|max:100',
+            'english_score' => 'required|numeric|min:0|max:100',
+        ]);
+
+        if ($validator->fails()) {
+            return redirect()->back()->withErrors($validator)->withInput();
+        }
+
         $user->first_name = $request->input('first_name');
         $user->last_name = $request->input('last_name');
         $user->email = $request->input('email');
 
+        if ($request->hasFile('photo')) {
+            $photoPath = $request->file('photo')->store('img', 'public');
+            $user->photo = $photoPath;
+        }
 
         $user->save();
 
@@ -77,6 +96,7 @@ class UserController extends Controller
 
         return redirect()->route('admin.users.index')->with('success', 'Użytkownik został zaktualizowany.');
     }
+
 
 
     public function destroy($id)
