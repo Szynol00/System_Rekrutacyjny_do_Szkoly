@@ -37,10 +37,10 @@
                                                         {{ $user->last_name }}</h5>
                                                     <p class="card-text">{{ $user->email }}</p>
                                                     <div class="btn-group" role="group" aria-label="User Actions">
-                                                        <button type="button" class="btn btn-primary">Edytuj</button>
-                                                        <button type="button" class="btn btn-danger">Usuń</button>
-                                                        <button type="button"
-                                                            class="btn btn-primary">Szczegóły</button>
+                                                        <a href="{{ route('admin.users.show', $user->id) }}"
+                                                            class="btn btn-primary custom-btn">Szczegóły</a>
+                                                        <a href="{{ route('admin.users.edit', $user->id) }}"
+                                                            class="btn btn-primary">Edytuj</a>
                                                     </div>
                                                 </div>
                                             </div>

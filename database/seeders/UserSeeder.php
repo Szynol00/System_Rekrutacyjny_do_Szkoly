@@ -70,7 +70,7 @@ class UserSeeder extends Seeder
                 'last_name' => 'Bielecka',
                 'email' => 'bielecka.sylwia@email.com',
                 'password' => Hash::make('password123'),
-                'photo' => 'img/id_photo1.jpg',
+                'photo' => 'img/id_photo2.jpg',
                 'email_verified_at' => now(),
                 'role_id' => 2, // user
                 'remember_token' => Str::random(10),
@@ -158,7 +158,7 @@ class UserSeeder extends Seeder
                 'email' => 'natalia.chmieloweic@email.com',
                 'email_verified_at' => now(),
                 'password' => Hash::make('password123'),
-                'photo' => 'img/id_photo1.jpg',
+                'photo' => 'img/id_photo2.jpg',
                 'role_id' => 2, // user
                 'remember_token' => Str::random(10),
                 'created_at' => now(),
@@ -183,7 +183,7 @@ class UserSeeder extends Seeder
                 'email' => 'martyna.mielczarek@email.com',
                 'email_verified_at' => now(),
                 'password' => Hash::make('password123'),
-                'photo' => 'img/id_photo1.jpg',
+                'photo' => 'img/id_photo2.jpg',
                 'role_id' => 2, // user
                 'remember_token' => Str::random(10),
                 'created_at' => now(),
@@ -233,7 +233,7 @@ class UserSeeder extends Seeder
                 'email' => 'klaudia.lewandowska@email.com',
                 'email_verified_at' => now(),
                 'password' => Hash::make('password123'),
-                'photo' => 'img/id_photo1.jpg',
+                'photo' => 'img/id_photo2.jpg',
                 'role_id' => 2, // user
                 'remember_token' => Str::random(10),
                 'created_at' => now(),
@@ -283,7 +283,7 @@ class UserSeeder extends Seeder
                 'email' => 'kladuia.gorska@email.com',
                 'email_verified_at' => now(),
                 'password' => Hash::make('password123'),
-                'photo' => 'img/id_photo1.jpg',
+                'photo' => 'img/id_photo2.jpg',
                 'role_id' => 2, // user
                 'remember_token' => Str::random(10),
                 'created_at' => now(),
