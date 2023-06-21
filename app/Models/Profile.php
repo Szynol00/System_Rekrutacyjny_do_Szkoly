@@ -9,6 +9,19 @@ class Profile extends Model
 {
     use HasFactory;
 
+    protected $table = 'profiles';
+
+    protected $fillable = [
+        'name',
+        'description',
+        'mathematics_multiplier',
+        'polish_multiplier',
+        'english_multiplier',
+        'start_date',
+        'end_date',
+        'places',
+    ];
+
     public function applications()
     {
         return $this->hasMany(Application::class);
