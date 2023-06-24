@@ -11,7 +11,7 @@ class UserController extends Controller
 {
     public function index()
     {
-        // Logika pobierania wszystkich użytkowników
+        // Pobieranie wszystkich użytkowników
         $users = User::all();
 
         return view('admin.users.index', compact('users'));
@@ -19,7 +19,7 @@ class UserController extends Controller
 
     public function show($id)
     {
-        // Logika pobierania i wyświetlania użytkownika o określonym ID
+        // Pobieranie i wyświetlanie użytkownika o określonym ID
         $user = User::findOrFail($id);
 
         return view('admin.users.show', compact('user'));
