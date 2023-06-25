@@ -33,6 +33,8 @@ class ApplicationService
             $score = ($candidate->mathematics_score * $profile->mathematics_multiplier)
                 + ($candidate->polish_score * $profile->polish_multiplier)
                 + ($candidate->english_score * $profile->english_multiplier);
+        } else {
+            $application->is_qualified = 0; // Ustawienie is_qualified na 0, gdy warunek nie jest spełniony
         }
 
         $application->score = $score;
