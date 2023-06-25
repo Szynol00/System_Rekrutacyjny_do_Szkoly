@@ -103,19 +103,24 @@
         var photoError = document.getElementById('photoError');
         var maxFileSize = 400 * 1024; // 400KB
 
+        var photoInput = document.getElementById('photo');
+        var photoError = document.getElementById('photoError');
+        var maxFileSize = 400 * 1024; // 400KB
+
         if (photoInput.files.length > 0) {
             var fileSize = photoInput.files[0].size;
 
             if (fileSize > maxFileSize) {
                 photoError.textContent = 'Zdjęcie przekracza maksymalny rozmiar.';
                 event.preventDefault();
+
             } else {
                 photoError.textContent = '';
             }
         } else {
-            photoError.textContent = 'Wybierz zdjęcie.';
-            event.preventDefault();
+            photoError.textContent = '';
         }
+
         var firstNameInput = document.getElementById('first_name');
         var firstNameError = document.getElementById('first_name_error');
 
