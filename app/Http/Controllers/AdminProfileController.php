@@ -82,7 +82,7 @@ class AdminProfileController extends Controller
             'english_multiplier' => 'required|numeric|min:0|max:10',
             'start_date' => 'required|date',
             'end_date' => 'required|date',
-            'places' => 'required|integer',
+            'places' => 'required|integer|min:0|max:50',
         ]);
 
         if ($validator->fails()) {

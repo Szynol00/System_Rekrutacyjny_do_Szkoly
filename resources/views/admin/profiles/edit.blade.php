@@ -154,5 +154,16 @@
             englishMultiplierError.textContent = '';
         }
 
+        var placesInput = document.getElementById('places');
+        var placesError = document.getElementById('places_error');
+        var places = parseInt(placesInput.value);
+
+        if (isNaN(places) || places < 0 || places > 50) {
+            placesError.textContent = 'Podaj poprawną liczbę miejsc od 0 do 50';
+            event.preventDefault();
+        } else {
+            placesError.textContent = '';
+        }
+
     });
 </script>
