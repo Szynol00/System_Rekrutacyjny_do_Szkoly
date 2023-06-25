@@ -7,6 +7,7 @@ use App\Models\Profile;
 use App\Events\RecruitmentFinished;
 use Illuminate\Database\QueryException;
 use App\Models\Application;
+use Illuminate\Support\Facades\Validator;
 
 class AdminProfileController extends Controller
 {
@@ -70,17 +71,25 @@ class AdminProfileController extends Controller
 
     public function update(Request $request, $id)
     {
+        $profile = Profile::find($id);
+
         // Walidacja danych wejściowych
-        $validatedData = $request->validate([
+        $validator = Validator::make($request->all(), [
             'name' => 'required',
             'description' => 'required',
-            'mathematics_multiplier' => 'required|numeric',
-            'polish_multiplier' => 'required|numeric',
-            'english_multiplier' => 'required|numeric',
+            'mathematics_multiplier' => 'required|numeric|min:0|max:10',
+            'polish_multiplier' => 'required|numeric|min:0|max:10',
+            'english_multiplier' => 'required|numeric|min:0|max:10',
             'start_date' => 'required|date',
             'end_date' => 'required|date',
             'places' => 'required|integer',
         ]);
+
+        if ($validator->fails()) {
+            return redirect()->route('admin.profiles.edit', $id)
+                ->withErrors($validator)
+                ->withInput();
+        }
 
         $profile = Profile::find($id);
 
